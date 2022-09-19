@@ -100,6 +100,10 @@ abstract class Books {
     public String getBookTitle() {
         return bookTitle;
     }
+
+    /*public String toString(Books book) {
+
+    }*/
 }
 
 /*
