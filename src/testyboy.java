@@ -1,7 +1,20 @@
+import java.util.Scanner;
+
 public class testyboy {
-    public static void main(String[] args) {
-        ChildrensBook test = new ChildrensBook(12351241, "1234", 123, 123, "hello world", "avery", 'f');
-        //ChildrensBook test1 = (ChildrensBook) test;
+    public static void main(String[] args) throws Exception {
+
+        LibraryUser newUser = new LibraryUser();
+
+        newUser.loadDoc();
+        newUser.loadMenu();
+        Scanner input = new Scanner(System.in);
+        short userChoice = input.nextShort();
+
+        switch (userChoice) {
+            case 1:
+
+        }
+
 
     }
 }
