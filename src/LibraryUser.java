@@ -23,6 +23,30 @@ public class LibraryUser {
 		System.out.println("4\tProduce Random Book List");
 		System.out.println("5\tSave and Exit");
 		System.out.println("\nEnter option");
+		LibraryUser newUser = new LibraryUser();
+		short choice = userInput.nextShort();
+
+		switch (choice) {
+			case 1:
+				newUser.checkoutBook();
+				break;
+
+			case 2:
+				newUser.findBook();
+				break;
+
+			case 3:
+				newUser.bookByType();
+				break;
+
+			case 4:
+				newUser.randomBookList();
+				break;
+
+			case 5:
+				newUser.saveBookList();
+				break;
+		}
 	}
 	
 	public void loadDoc() throws Exception {
