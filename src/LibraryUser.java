@@ -1,16 +1,15 @@
-import java.awt.print.Book;
+package application;
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
 public class LibraryUser {
 	Scanner userInput = new Scanner(System.in);
-	ArrayList<Books> bookList = new ArrayList<>();
+	ArrayList<Books> bookList = new ArrayList<Books>();
 	
 	public LibraryUser() {
 	}
@@ -23,30 +22,6 @@ public class LibraryUser {
 		System.out.println("4\tProduce Random Book List");
 		System.out.println("5\tSave and Exit");
 		System.out.println("\nEnter option");
-		LibraryUser newUser = new LibraryUser();
-		short choice = userInput.nextShort();
-
-		switch (choice) {
-			case 1:
-				newUser.checkoutBook();
-				break;
-
-			case 2:
-				newUser.findBook();
-				break;
-
-			case 3:
-				newUser.bookByType();
-				break;
-
-			case 4:
-				newUser.randomBookList();
-				break;
-
-			case 5:
-				newUser.saveBookList();
-				break;
-		}
 	}
 	
 	public void loadDoc() throws Exception {
@@ -139,10 +114,10 @@ public class LibraryUser {
 			System.out.println("Enter a format (P for Picture book, E for Early readers, or C for Chapter book):");
 			String stringFormat = userInput.nextLine().toLowerCase();
 			char format = stringFormat.charAt(0);
-			format = Character.toLowerCase(format);
+			format = Character.toUpperCase(format);
 			System.out.println("Matching books:");
 			for (int i = 0; i < bookList.size(); i++) {
-				if (((ChildrensBook)bookList.get(i)).getFormat() == format || ((ChildrensBook)bookList.get(i)).getFormat() == Character.toUpperCase(format)) {
+				if (((ChildrensBook)bookList.get(i)).getFormat() == format) {
 					System.out.println(bookList.get(i).toString());
 				}
 			}
@@ -151,10 +126,10 @@ public class LibraryUser {
 			System.out.println("Enter a diet (D for Diabetic, V for Vegetarian, G for Gluten-free, I for International, or N for None):");
 			String stringDiet = userInput.nextLine().toLowerCase();
 			char diet = stringDiet.charAt(0);
-			diet = Character.toLowerCase(diet);
+			diet = Character.toUpperCase(diet);
 			System.out.println("Matching books:");
 			for (int i = 0; i < bookList.size(); i++) {
-				if (((Cookbook)bookList.get(i)).getDiet() == diet || ((Cookbook)bookList.get(i)).getDiet() == Character.toUpperCase(diet)) {
+				if (((Cookbook)bookList.get(i)).getDiet() == diet) {
 					System.out.println(bookList.get(i).toString());
 				}
 			}
@@ -164,10 +139,10 @@ public class LibraryUser {
 			System.out.println("Enter a genre (A for Adventure, D for Drama, E for Education, C for Classic, F for Fantasy, or S for Science Fiction):");
 			String stringGenre = userInput.nextLine().toLowerCase();
 			char genre = stringGenre.charAt(0);
-			genre = Character.toLowerCase(genre);
+			genre = Character.toUpperCase(genre);
 			System.out.println("Matching books:");
 			for (int i = 0; i < bookList.size(); i++) {
-				if (((Paperback)bookList.get(i)).getGenre() == genre || ((Paperback)bookList.get(i)).getGenre() == Character.toUpperCase(genre)) {
+				if (((Paperback)bookList.get(i)).getGenre() == genre) {
 					System.out.println(bookList.get(i).toString());
 				}
 			}
@@ -176,10 +151,10 @@ public class LibraryUser {
 			System.out.println("Enter a frequency (D for Daily, W for Weekly, M for Monthly, B for Bimonthly, or Q for Quarterly):");
 			String stringFrequency = userInput.nextLine().toLowerCase();
 			char frequency = stringFrequency.charAt(0);
-			frequency = Character.toLowerCase(frequency);
+			frequency = Character.toUpperCase(frequency);
 			System.out.println("Matching books:");
 			for (int i = 0; i < bookList.size(); i++) {
-				if (((Periodical)bookList.get(i)).getFrequency() == frequency || ((Periodical)bookList.get(i)).getFrequency() == Character.toUpperCase(frequency)) {
+				if (((Periodical)bookList.get(i)).getFrequency() == frequency) {
 					System.out.println(bookList.get(i).toString());
 				}
 			}
