@@ -1,4 +1,4 @@
-abstract class Book {
+abstract class Books {
     private long isbn;
     private String callNumber;
     private int availableBooks;
@@ -13,7 +13,7 @@ abstract class Book {
      * @param totalBooks
      * @param bookTitle
      */
-    Book(long isbn, String callNumber, int availableBooks, int totalBooks, String bookTitle) {
+    Books(long isbn, String callNumber, int availableBooks, int totalBooks, String bookTitle) {
         this.isbn = isbn;
         this.callNumber = callNumber;
         this.availableBooks = availableBooks;

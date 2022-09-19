@@ -1,4 +1,4 @@
-public class Periodical extends Book{
+public class Periodical extends Books{
     private char frequency;
 
     /**
@@ -11,7 +11,7 @@ public class Periodical extends Book{
      * @param frequency
      */
     public Periodical(long isbn, String callNumber, int availableBooks, int totalBooks,
-                      String bookTitle, String frequency) {
+                      String bookTitle, char frequency) {
         super(isbn, callNumber, availableBooks, totalBooks, bookTitle);
         this.frequency = frequency;
     }

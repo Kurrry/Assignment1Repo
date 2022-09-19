@@ -1,9 +1,9 @@
-public class ChildrensBook extends Book{
+public class ChildrensBook extends Books{
     private String authors;
     private char format;
 
     public ChildrensBook(long isbn, String callNumber, int availableBooks, int totalBooks,
-                         String bookTitle, String authors, String format) {
+                         String bookTitle, String authors, char format) {
         super(isbn, callNumber, availableBooks, totalBooks, bookTitle);
         this.authors= authors;
         this.format = format;
