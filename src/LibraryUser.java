@@ -75,7 +75,7 @@ public class LibraryUser {
 	
 	public void checkoutBook() {
 		System.out.println("Enter ISBN of book:");
-		int iSBN = Integer.parseInt(userInput.nextLine());
+		long iSBN = Long.parseLong(userInput.nextLine());
 		boolean found = false;
 		for (int i = 0; i < bookList.size(); i++) {
 			if (bookList.get(i).getIsbn() == iSBN) {
