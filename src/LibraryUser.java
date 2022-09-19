@@ -63,12 +63,12 @@ public class LibraryUser {
 			int total = Integer.parseInt(stringTotal);
 			String title = parser.next();
 			if (bookType == 0 || bookType == 1) {
-				String authors = parser.next();
+				String authors = parser.nextLine();
 				char format = parser.next().charAt(0);
 				bookList.add(new ChildrensBook(iSBN, callNum, available, total, title, authors, format));
 			}
 			else if (bookType == 2 || bookType == 3) {
-				String publisher = parser.next();
+				String publisher = parser.nextLine();
 				char diet = parser.next().charAt(0);
 				bookList.add(new Cookbook(iSBN, callNum, available, total, title, publisher, diet));
 			}
@@ -77,7 +77,7 @@ public class LibraryUser {
 				bookList.add(new Periodical(iSBN, callNum, available, total, title, frequency));
 			}
 			else {
-				String authors = parser.next();
+				String authors = parser.nextLine();
 				String stringYear = parser.next();
 				int year = Integer.parseInt(stringYear);
 				char genre = parser.next().charAt(0);
@@ -88,7 +88,7 @@ public class LibraryUser {
 	
 	public void checkoutBook() {
 		System.out.println("Enter ISBN of book:");
-		long iSBN = userInput2.nextLong();
+		long iSBN = userInput.nextLong();
 		boolean found = false;
 		for (Books books : bookList) {
 			if (books.getIsbn() == iSBN) {
@@ -109,7 +109,7 @@ public class LibraryUser {
 	
 	public void findBook() {
 		System.out.println("Enter title to search for:");
-		String title = userInput.next().toLowerCase();
+		String title = userInput.nextLine().toLowerCase();
 		System.out.println("Matching books:");
 		for (Books books : bookList) {
 			if (books.getBookTitle().toLowerCase().contains(title)) {
