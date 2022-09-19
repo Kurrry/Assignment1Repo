@@ -93,15 +93,15 @@ public class LibraryUser {
 		int iSBN = Integer.parseInt(userInput.nextLine());
 		boolean found = false;
 		for (int i = 0; i < bookList.size(); i++) {
-			if (bookList.get(i).getISBN() == iSBN) {
-				int quantity = bookList.get(i).getQuantity();
+			if (bookList.get(i).getIsbn() == iSBN) {
+				int quantity = bookList.get(i).getAvailableBooks();
 				if (quantity > 0) {
 					found = true;
-					bookList.get(i).setQuantity(quantity - 1);
-					System.out.println("The book " + bookList.get(i).getTitle() + " has been checked out.\nIt can be located using a call number: " + bookList.get(i).getCallNumber());
+					bookList.get(i).setTotalBooks(quantity - 1);
+					System.out.println("The book " + bookList.get(i).getBookTitle() + " has been checked out.\nIt can be located using a call number: " + bookList.get(i).getCallNumber());
 				}
 				else {
-					System.out.println("There are no more copies of " + bookList.get(i).getTitle() + " available to rent.");
+					System.out.println("There are no more copies of " + bookList.get(i).getBookTitle() + " available to rent.");
 				}
 			}
 			if (!found) {
@@ -115,7 +115,7 @@ public class LibraryUser {
 		String title = userInput.nextLine().toLowerCase();
 		System.out.println("Matching books:");
 		for (int i = 0; i < bookList.size(); i++) {
-			if (bookList.get(i).getTitle().toLowerCase().contains(title)) {
+			if (bookList.get(i).getBookTitle().toLowerCase().contains(title)) {
 				System.out.println(bookList.get(i).toString());
 			}
 		}
@@ -185,10 +185,10 @@ public class LibraryUser {
 		for (int i = 0; i < bookList.size(); i++) {
 			long iSBN = bookList.get(i).getIsbn();
 			long bookType = iSBN % 10;
-			String callNum = bookList.get(i).getCallNum();
-			int available = bookList.get(i).getAvailable();
-			int total = bookList.get(i).getTotal();
-			String title = bookList.get(i).getTitle();
+			String callNum = bookList.get(i).getCallNumber();
+			int available = bookList.get(i).getAvailableBooks();
+			int total = bookList.get(i).getTotalBooks();
+			String title = bookList.get(i).getBookTitle();
 			if (bookType == 0 || bookType == 1) {
 				String authors = bookList.get(i).getAuthors();
 				String format = bookList.get(i).getFormat();
@@ -204,7 +204,7 @@ public class LibraryUser {
 				scribe.println(iSBN + ";" + callNum + ";" + available + ";" + total + ";" + title + ";" + frequency);
 			}
 			else {
-				String authors = parser.nextLine();
+				String authors = bookList.get(i).getAuthors();
 				int year = bookList.get(i).getYear();
 				String genre = bookList.get(i).getGenre();
 				scribe.println(iSBN + ";" + callNum + ";" + available + ";" + total + ";" + title + ";" + authors + ";" + year + ";" + genre);
