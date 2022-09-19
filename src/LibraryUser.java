@@ -15,7 +15,7 @@ public class LibraryUser {
 	public LibraryUser() {
 	}
 	
-	public void loadMenu() throws IOException {
+	public void loadMenu() {
 		System.out.println("Welcome in ABC Book Company: How May We Assist You?");
 		System.out.println("1\tCheckout Book");
 		System.out.println("2\tFind Books by Title");
@@ -23,30 +23,6 @@ public class LibraryUser {
 		System.out.println("4\tProduce Random Book List");
 		System.out.println("5\tSave and Exit");
 		System.out.println("\nEnter option");
-		LibraryUser newUser = new LibraryUser();
-		short choice = userInput.nextShort();
-
-		switch (choice) {
-			case 1:
-				newUser.checkoutBook();
-				break;
-
-			case 2:
-				newUser.findBook();
-				break;
-
-			case 3:
-				newUser.bookByType();
-				break;
-
-			case 4:
-				newUser.randomBookList();
-				break;
-
-			case 5:
-				newUser.saveBookList();
-				break;
-		}
 	}
 	
 	public void loadDoc() throws Exception {
@@ -66,26 +42,36 @@ public class LibraryUser {
 			String title = parser.nextLine();
 			if (bookType == 0 || bookType == 1) {
 				String authors = parser.nextLine();
-				char format = parser.nextLine().charAt(0);
-				bookList.add(new ChildrensBook(iSBN, callNum, available, total, title, authors, format));
+				String stringFormat = parser.nextLine();
+				char format = stringFormat.charAt(0);
+				Books book = new ChildrensBook(iSBN, callNum, available, total, title, authors, format);
+				bookList.add(book);
 			}
 			else if (bookType == 2 || bookType == 3) {
 				String publisher = parser.nextLine();
-				char diet = parser.nextLine().charAt(0);
-				bookList.add(new Cookbook(iSBN, callNum, available, total, title, publisher, diet));
+				String stringDiet = parser.nextLine();
+				char diet = stringDiet.charAt(0);
+				Books book = new Cookbook(iSBN, callNum, available, total, title, publisher, diet);
+				bookList.add(book);
 			}
 			else if (bookType == 8 || bookType == 9) {
-				char frequency = parser.nextLine().charAt(0);
-				bookList.add(new Periodical(iSBN, callNum, available, total, title, frequency));
+				String stringFrequency = parser.nextLine();
+				char frequency = stringFrequency.charAt(0);
+				Books book = new Periodical(iSBN, callNum, available, total, title, frequency);
+				bookList.add(book);
 			}
 			else {
 				String authors = parser.nextLine();
 				String stringYear = parser.nextLine();
-				int year = Integer.parseInt(stringYear);
-				char genre = parser.nextLine().charAt(0);
-				bookList.add(new Paperback(iSBN, callNum, available, total, title, authors, year, genre));
+				short year = Short.parseShort(stringYear);
+				String stringGenre = parser.nextLine();
+				char genre = stringGenre.charAt(0);
+				Books book = new Paperback(iSBN, callNum, available, total, title, authors, year, genre);
+				bookList.add(book);
 			}
+			parser.close();
 		}
+		reader.close();
 	}
 	
 	public void checkoutBook() {
@@ -94,7 +80,7 @@ public class LibraryUser {
 		boolean found = false;
 		for (int i = 0; i < bookList.size(); i++) {
 			if (bookList.get(i).getIsbn() == iSBN) {
-				int quantity = bookList.get(i).getTotalBooks();
+				int quantity = bookList.get(i).getAvailableBooks();
 				if (quantity > 0) {
 					found = true;
 					bookList.get(i).setTotalBooks(quantity - 1);
@@ -114,9 +100,9 @@ public class LibraryUser {
 		System.out.println("Enter title to search for:");
 		String title = userInput.nextLine().toLowerCase();
 		System.out.println("Matching books:");
-		for (Books books : bookList) {
-			if (books.getBookTitle().toLowerCase().contains(title)) {
-				System.out.println(books);
+		for (int i = 0; i < bookList.size(); i++) {
+			if (bookList.get(i).getBookTitle().toLowerCase().contains(title)) {
+				System.out.println(bookList.get(i).toString());
 			}
 		}
 	}
@@ -127,71 +113,50 @@ public class LibraryUser {
 		switch (choice) {
 		case 1:
 			System.out.println("Enter a format (P for Picture book, E for Early readers, or C for Chapter book):");
-			char format = userInput.nextLine().toLowerCase().charAt(0);
+			String stringFormat = userInput.nextLine().toLowerCase();
+			char format = stringFormat.charAt(0);
+			format = Character.toLowerCase(format);
 			System.out.println("Matching books:");
-			ArrayList<ChildrensBook> cbList = new ArrayList<>();
-
-			for (Books b : bookList) {
-				if (b instanceof ChildrensBook) {
-					cbList.add((ChildrensBook) b);
-				}
-			}
-			for (ChildrensBook cb : cbList) {
-				if (cb.getFormat() == format) {
-					System.out.println(cb);
+			for (int i = 0; i < bookList.size(); i++) {
+				if (((ChildrensBook)bookList.get(i)).getFormat() == format || ((ChildrensBook)bookList.get(i)).getFormat() == Character.toUpperCase(format)) {
+					System.out.println(bookList.get(i).toString());
 				}
 			}
 			break;
 		case 2:
 			System.out.println("Enter a diet (D for Diabetic, V for Vegetarian, G for Gluten-free, I for International, or N for None):");
-			char diet = userInput.nextLine().toLowerCase().charAt(0);
+			String stringDiet = userInput.nextLine().toLowerCase();
+			char diet = stringDiet.charAt(0);
+			diet = Character.toLowerCase(diet);
 			System.out.println("Matching books:");
-			ArrayList<Cookbook> cookList = new ArrayList<>();
-
-			for (Books b : bookList) {
-				if (b instanceof Cookbook) {
-					cookList.add((Cookbook) b);
-				}
-			}
-
-			for (Cookbook cook : cookList) {
-				if (cook.getDiet() == diet) {
-					System.out.println(cook);
+			for (int i = 0; i < bookList.size(); i++) {
+				if (((Cookbook)bookList.get(i)).getDiet() == diet || ((Cookbook)bookList.get(i)).getDiet() == Character.toUpperCase(diet)) {
+					System.out.println(bookList.get(i).toString());
 				}
 			}
 			break;
 		
 		case 3:
 			System.out.println("Enter a genre (A for Adventure, D for Drama, E for Education, C for Classic, F for Fantasy, or S for Science Fiction):");
-			char genre = userInput.nextLine().toLowerCase().charAt(0);
+			String stringGenre = userInput.nextLine().toLowerCase();
+			char genre = stringGenre.charAt(0);
+			genre = Character.toLowerCase(genre);
 			System.out.println("Matching books:");
-
-			ArrayList<Paperback> pbList = new ArrayList<>();
-			for (Books b : bookList){
-				if (b instanceof Paperback) {
-					pbList.add((Paperback) b);
-				}
-			}
-			for (Paperback pb : pbList) {
-				if (pb.getGenre() == genre) {
-					System.out.println(pb);
+			for (int i = 0; i < bookList.size(); i++) {
+				if (((Paperback)bookList.get(i)).getGenre() == genre || ((Paperback)bookList.get(i)).getGenre() == Character.toUpperCase(genre)) {
+					System.out.println(bookList.get(i).toString());
 				}
 			}
 			break;
 		case 4:
 			System.out.println("Enter a frequency (D for Daily, W for Weekly, M for Monthly, B for Bimonthly, or Q for Quarterly):");
-			char frequency = userInput.nextLine().toLowerCase().charAt(0);
+			String stringFrequency = userInput.nextLine().toLowerCase();
+			char frequency = stringFrequency.charAt(0);
+			frequency = Character.toLowerCase(frequency);
 			System.out.println("Matching books:");
-
-			ArrayList<Periodical> pdList = new ArrayList<>();
-			for (Books b : bookList) {
-				if (b instanceof Periodical) {
-					pdList.add((Periodical) b);
-				}
-			}
-			for (Periodical pd : pdList) {
-				if (pd.getFrequency() == frequency) {
-					System.out.println(pd);
+			for (int i = 0; i < bookList.size(); i++) {
+				if (((Periodical)bookList.get(i)).getFrequency() == frequency || ((Periodical)bookList.get(i)).getFrequency() == Character.toUpperCase(frequency)) {
+					System.out.println(bookList.get(i).toString());
 				}
 			}
 			break;
@@ -219,22 +184,23 @@ public class LibraryUser {
 			int total = bookList.get(i).getTotalBooks();
 			String title = bookList.get(i).getBookTitle();
 			if (bookType == 0 || bookType == 1) {
-				String format = bookList.get(i).getFormat();
+				String authors = ((ChildrensBook)bookList.get(i)).getAuthors();
+				char format = ((ChildrensBook)bookList.get(i)).getFormat();
 				scribe.println(iSBN + ";" + callNum + ";" + available + ";" + total + ";" + title + ";" + authors + ";" + format);
 			}
 			else if (bookType == 2 || bookType == 3) {
-				String publisher = bookList.get(i).getPublisher();
-				String diet = bookList.get(i).getDiet();
+				String publisher = ((Cookbook)bookList.get(i)).getPublisher();
+				char diet = ((Cookbook)bookList.get(i)).getDiet();
 				scribe.println(iSBN + ";" + callNum + ";" + available + ";" + total + ";" + title + ";" + publisher + ";" + diet);
 			}
 			else if (bookType == 8 || bookType == 9) {
-				String frequency = bookList.get(i).getFrequency();
+				char frequency = ((Periodical)bookList.get(i)).getFrequency();
 				scribe.println(iSBN + ";" + callNum + ";" + available + ";" + total + ";" + title + ";" + frequency);
 			}
 			else {
-				String authors = parser.nextLine();
-				int year = bookList.get(i).getYear();
-				String genre = bookList.get(i).getGenre();
+				String authors = ((Paperback)bookList.get(i)).getAuthors();
+				short year = ((Paperback)bookList.get(i)).getYear();
+				char genre = ((Paperback)bookList.get(i)).getGenre();
 				scribe.println(iSBN + ";" + callNum + ";" + available + ";" + total + ";" + title + ";" + authors + ";" + year + ";" + genre);
 			}
 		}
