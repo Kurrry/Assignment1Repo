@@ -14,7 +14,7 @@ public class LibraryUser {
 	public LibraryUser() {
 	}
 	
-	public void loadMenu() {
+	public void loadMenu() throws IOException {
 		System.out.println("Welcome in ABC Book Company: How May We Assist You?");
 		System.out.println("1\tCheckout Book");
 		System.out.println("2\tFind Books by Title");
@@ -22,6 +22,30 @@ public class LibraryUser {
 		System.out.println("4\tProduce Random Book List");
 		System.out.println("5\tSave and Exit");
 		System.out.println("\nEnter option");
+		LibraryUser newUser = new LibraryUser();
+		short choice = userInput.nextShort();
+
+		switch (choice) {
+			case 1:
+				newUser.checkoutBook();
+				break;
+
+			case 2:
+				newUser.findBook();
+				break;
+
+			case 3:
+				newUser.bookByType();
+				break;
+
+			case 4:
+				newUser.randomBookList();
+				break;
+
+			case 5:
+				newUser.saveBookList();
+				break;
+		}
 	}
 	
 	public void loadDoc() throws Exception {
@@ -42,12 +66,13 @@ public class LibraryUser {
 			if (bookType == 0 || bookType == 1) {
 				String authors = parser.nextLine();
 				String format = parser.nextLine();
-				bookList.add(new ChildBook(iSBN, callNum, available, total, title, authors, format));
+				Book temp = new ChildrensBook(iSBN, callNum, available, total, title, authors, format);
+				bookList.add(new ChildrensBook(iSBN, callNum, available, total, title, authors, format));
 			}
 			else if (bookType == 2 || bookType == 3) {
 				String publisher = parser.nextLine();
-				String diet = parser.nextLine();
-				bookList.add(new CookBook(iSBN, callNum, available, total, title, publisher, diet));
+				String diet = parser.next();
+				bookList.add(new Cookbook(iSBN, callNum, available, total, title, publisher, diet));
 			}
 			else if (bookType == 8 || bookType == 9) {
 				String frequency = parser.nextLine();
@@ -158,7 +183,7 @@ public class LibraryUser {
 		File bookFile = new File("A7_Gagne_Holloway_Johnson-Dhillon\\books.txt");
 		PrintWriter scribe = new PrintWriter(bookFile);
 		for (int i = 0; i < bookList.size(); i++) {
-			long iSBN = bookList.get(i).getISBN();
+			long iSBN = bookList.get(i).getIsbn();
 			long bookType = iSBN % 10;
 			String callNum = bookList.get(i).getCallNum();
 			int available = bookList.get(i).getAvailable();

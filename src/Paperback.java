@@ -1,7 +1,7 @@
 public class Paperback extends Book{
     private String authors;
-    private short year;
-    private char genre;
+    private int year;
+    private String genre;
 
     /**
      *
@@ -15,7 +15,7 @@ public class Paperback extends Book{
      * @param genre
      */
     public Paperback(long isbn, String callNumber, int availableBooks, int totalBooks,
-              String bookTitle, String authors, short year, char genre) {
+              String bookTitle, String authors, int year, String genre) {
         super(isbn, callNumber, availableBooks, totalBooks, bookTitle);
         this.authors = authors;
         this.year = year;

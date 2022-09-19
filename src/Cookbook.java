@@ -1,10 +1,10 @@
 public class Cookbook extends Book{
     private String publisher;
-    private char diet;
+    private String diet;
 
 
     public Cookbook(long isbn, String callNumber, int availableBooks, int totalBooks,
-                    String bookTitle, String publisher, char diet) {
+                    String bookTitle, String publisher, String diet) {
         super(isbn, callNumber, availableBooks, totalBooks, bookTitle);
         this.publisher = publisher;
         this.diet = diet;

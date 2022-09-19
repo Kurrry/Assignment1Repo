@@ -3,7 +3,7 @@ public class ChildrensBook extends Book{
     private char format;
 
     public ChildrensBook(long isbn, String callNumber, int availableBooks, int totalBooks,
-                         String bookTitle, String authors,char format) {
+                         String bookTitle, String authors, String format) {
         super(isbn, callNumber, availableBooks, totalBooks, bookTitle);
         this.authors= authors;
         this.format = format;
