@@ -19,29 +19,33 @@ public class LibraryUser {
 		System.out.println("4\tProduce Random Book List");
 		System.out.println("5\tSave and Exit");
 		System.out.println("\nEnter option");
+		//We might be able to refer to the call by this? Would save us from making new objects every time it's called.
 		/*LibraryUser newUser = new LibraryUser();
+		// This can technically be byte if we want to take every measure to save memory
 		short choice = userInput.nextShort();
+		
+		while (userInput != 5) {
+			switch (choice) {
+				case 1:
+					this.checkoutBook();
+					break;
 
-		switch (choice) {
-			case 1:
-				newUser.checkoutBook();
-				break;
+				case 2:
+					this.findBook();
+					break;
 
-			case 2:
-				newUser.findBook();
-				break;
+				case 3:
+					this.bookByType();
+					break;
 
-			case 3:
-				newUser.bookByType();
-				break;
-
-			case 4:
-				newUser.randomBookList();
-				break;
-
-			case 5:
-				newUser.saveBookList();
-				break;
+				case 4:
+					this.randomBookList();
+					break;
+			}
+			this.loadMenu();
+		}
+		if (userInput == 5) {
+			newUser.saveBookList();
 		}*/
 	}
 	
