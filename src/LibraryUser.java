@@ -24,7 +24,7 @@ public class LibraryUser {
 		// This can technically be byte if we want to take every measure to save memory
 		short choice = userInput.nextShort();
 		
-		while (userInput != 5) {
+		while (choice != 5) {
 			switch (choice) {
 				case 1:
 					this.checkoutBook();
@@ -44,7 +44,7 @@ public class LibraryUser {
 			}
 			loadMenu();
 		}
-		if (userInput == 5) {
+		if (choice == 5) {
 			this.saveBookList();
 		}*/
 	}
