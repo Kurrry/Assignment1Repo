@@ -42,7 +42,7 @@ public class LibraryUser {
 					this.randomBookList();
 					break;
 			}
-			this.loadMenu();
+			loadMenu();
 		}
 		if (userInput == 5) {
 			this.saveBookList();
