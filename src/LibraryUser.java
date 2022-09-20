@@ -19,9 +19,7 @@ public class LibraryUser {
 		System.out.println("4\tProduce Random Book List");
 		System.out.println("5\tSave and Exit");
 		System.out.println("\nEnter option");
-		//We might be able to refer to the call by this? Would save us from making new objects every time it's called.
-		/*LibraryUser newUser = new LibraryUser();
-		// This can technically be byte if we want to take every measure to save memory
+		
 		short choice = userInput.nextShort();
 		
 		while (choice != 5) {
@@ -46,7 +44,7 @@ public class LibraryUser {
 		}
 		if (choice == 5) {
 			this.saveBookList();
-		}*/
+		}
 	}
 	
 	public void loadDoc() throws Exception {
