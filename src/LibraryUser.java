@@ -24,18 +24,22 @@ public class LibraryUser {
 			case 1:
 				this.checkoutBook();
 				loadMenu();
+				break;
 
 			case 2:
 				this.findBook();
 				loadMenu();
+				break;
 
 			case 3:
 				this.bookByType();
 				loadMenu();
+				break;
 
 			case 4:
 				this.randomBookList();
 				loadMenu();
+				break;
 		}
 
 		this.saveBookList();
