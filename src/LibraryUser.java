@@ -19,34 +19,25 @@ public class LibraryUser {
 		System.out.println("4\tProduce Random Book List");
 		System.out.println("5\tSave and Exit");
 		System.out.println("\nEnter option");
-		//We might be able to refer to the call by this? Would save us from making new objects every time it's called.
-
-		// This can technically be byte if we want to take every measure to save memory
 		byte choice = userInput.nextByte();
-		
-		while (choice != 5) {
-			switch (choice) {
-				case 1:
-					this.checkoutBook();
-					loadMenu();
-					break;
+		switch (choice) {
+			case 1:
+				this.checkoutBook();
+				loadMenu();
 
-				case 2:
-					this.findBook();
-					loadMenu();
-					break;
+			case 2:
+				this.findBook();
+				loadMenu();
 
-				case 3:
-					this.bookByType();
-					loadMenu();
-					break;
+			case 3:
+				this.bookByType();
+				loadMenu();
 
-				case 4:
-					this.randomBookList();
-					loadMenu();
-					break;
-			}
+			case 4:
+				this.randomBookList();
+				loadMenu();
 		}
+
 		this.saveBookList();
 	}
 	
@@ -98,12 +89,11 @@ public class LibraryUser {
 				if (quantity > 0) {
 					books.setTotalBooks(quantity - 1);
 					System.out.println("The book " + books.getBookTitle() + " has been checked out.\nIt can be located using a call number: " + books.getCallNumber());
-					break;
-				} 
+				}
 				else {
 					System.out.println("There are no more copies of " + books.getBookTitle() + " available to rent.");
-					break;
 				}
+				break;
 			}
 		}
 		if (!found) {
