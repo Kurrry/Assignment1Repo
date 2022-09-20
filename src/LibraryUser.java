@@ -20,29 +20,33 @@ public class LibraryUser {
 		System.out.println("5\tSave and Exit");
 		System.out.println("\nEnter option");
 		byte choice = userInput.nextByte();
-		switch (choice) {
-			case 1:
-				this.checkoutBook();
-				loadMenu();
-				break;
 
-			case 2:
-				this.findBook();
-				loadMenu();
-				break;
+		if(choice < 5) {
 
-			case 3:
-				this.bookByType();
-				loadMenu();
-				break;
+			switch (choice) {
+				case 1:
+					this.checkoutBook();
+					break;
 
-			case 4:
-				this.randomBookList();
-				loadMenu();
-				break;
+				case 2:
+					this.findBook();
+					break;
+
+				case 3:
+					this.bookByType();
+					break;
+
+				case 4:
+					this.randomBookList();
+					break;
+			}
+			loadMenu();
+		} else if (choice == 5) {
+			this.saveBookList();
+		} else {
+			System.out.println("Incorrect input");
+			loadMenu();
 		}
-
-		this.saveBookList();
 	}
 	
 	public void loadDoc() throws Exception {
@@ -135,7 +139,7 @@ public class LibraryUser {
 			char diet = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
 			for (Books co : bookList) {
-				if (co instanceof Cookbook && ((Cookbook)co).getDiet() == diet) {
+				if (co instanceof Cookbook && ((Cookbook) co).getDiet() == diet) {
 					System.out.println(co);
 				}
 			}
