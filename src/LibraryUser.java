@@ -125,19 +125,18 @@ public class LibraryUser {
 			System.out.println("Enter a format (P for Picture book, E for Early readers, or C for Chapter book):");
 			char format = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
-			for (int i = 0; i < bookList.size(); i++) {
-				if (bookList.get(i) instanceof ChildrensBook && ((ChildrensBook)bookList.get(i)).getFormat() == format) {
-					System.out.println(bookList.get(i).toString());
-				}
+			for (Book ch : bookList) {
+				if (ch instanceof ChildrensBook && ch.getFormat() == format) {
+					System.out.println(ch);
 			}
 			break;
 		case 2:
 			System.out.println("Enter a diet (D for Diabetic, V for Vegetarian, G for Gluten-free, I for International, or N for None):");
 			char diet = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
-			for (int i = 0; i < bookList.size(); i++) {
-				if (bookList.get(i) instanceof Cookbook && ((Cookbook)bookList.get(i)).getDiet() == diet) {
-					System.out.println(bookList.get(i).toString());
+			for (Book co : bookList) {
+				if (co instanceof Cookbook && co.getDiet() == diet) {
+					System.out.println(co);
 				}
 			}
 			break;
@@ -146,9 +145,9 @@ public class LibraryUser {
 			System.out.println("Enter a genre (A for Adventure, D for Drama, E for Education, C for Classic, F for Fantasy, or S for Science Fiction):");
 			char genre = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
-			for (int i = 0; i < bookList.size(); i++) {
-				if (bookList.get(i) instanceof Paperback && ((Paperback)bookList.get(i)).getGenre() == genre) {
-					System.out.println(bookList.get(i).toString());
+			for (Book pa : bookList) {
+				if (pa instanceof Paperback && pa.getGenre() == genre) {
+					System.out.println(pa);
 				}
 			}
 			break;
@@ -156,9 +155,9 @@ public class LibraryUser {
 			System.out.println("Enter a frequency (D for Daily, W for Weekly, M for Monthly, B for Bimonthly, or Q for Quarterly):");
 			char frequency = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
-			for (int i = 0; i < bookList.size(); i++) {
-				if (bookList.get(i) instanceof Periodical && ((Periodical)bookList.get(i)).getFrequency() == frequency) {
-					System.out.println(bookList.get(i).toString());
+			for (Book pe : bookList) {
+				if (pa instanceof Periodical && pa.getFrequency() == frequency) {
+					System.out.println(pa);
 				}
 			}
 			break;
