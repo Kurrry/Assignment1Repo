@@ -20,33 +20,34 @@ public class LibraryUser {
 		System.out.println("5\tSave and Exit");
 		System.out.println("\nEnter option");
 		//We might be able to refer to the call by this? Would save us from making new objects every time it's called.
-		/*LibraryUser newUser = new LibraryUser();
+
 		// This can technically be byte if we want to take every measure to save memory
-		short choice = userInput.nextShort();
+		byte choice = userInput.nextByte();
 		
-		while (userInput != 5) {
+		while (choice != 5) {
 			switch (choice) {
 				case 1:
 					this.checkoutBook();
+					loadMenu();
 					break;
 
 				case 2:
 					this.findBook();
+					loadMenu();
 					break;
 
 				case 3:
 					this.bookByType();
+					loadMenu();
 					break;
 
 				case 4:
 					this.randomBookList();
+					loadMenu();
 					break;
 			}
-			loadMenu();
 		}
-		if (userInput == 5) {
-			this.saveBookList();
-		}*/
+		this.saveBookList();
 	}
 	
 	public void loadDoc() throws Exception {
@@ -112,7 +113,7 @@ public class LibraryUser {
 	
 	public void findBook() {
 		System.out.println("Enter title to search for:");
-		String title = userInput.nextLine().toLowerCase();
+		String title = userInput2.nextLine().toLowerCase();
 		System.out.println("Matching books:");
 		for (Books books : bookList) {
 			if (books.getBookTitle().toLowerCase().contains(title)) {
@@ -129,17 +130,18 @@ public class LibraryUser {
 			System.out.println("Enter a format (P for Picture book, E for Early readers, or C for Chapter book):");
 			char format = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
-			for (Book ch : bookList) {
-				if (ch instanceof ChildrensBook && ch.getFormat() == format) {
+			for (Books ch : bookList) {
+				if (ch instanceof ChildrensBook && ((ChildrensBook) ch).getFormat() == format) {
 					System.out.println(ch);
+				}
 			}
 			break;
 		case 2:
 			System.out.println("Enter a diet (D for Diabetic, V for Vegetarian, G for Gluten-free, I for International, or N for None):");
 			char diet = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
-			for (Book co : bookList) {
-				if (co instanceof Cookbook && co.getDiet() == diet) {
+			for (Books co : bookList) {
+				if (co instanceof Cookbook && ((Cookbook)co).getDiet() == diet) {
 					System.out.println(co);
 				}
 			}
@@ -149,8 +151,8 @@ public class LibraryUser {
 			System.out.println("Enter a genre (A for Adventure, D for Drama, E for Education, C for Classic, F for Fantasy, or S for Science Fiction):");
 			char genre = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
-			for (Book pa : bookList) {
-				if (pa instanceof Paperback && pa.getGenre() == genre) {
+			for (Books pa : bookList) {
+				if (pa instanceof Paperback && ((Paperback)pa).getGenre() == genre) {
 					System.out.println(pa);
 				}
 			}
@@ -159,9 +161,9 @@ public class LibraryUser {
 			System.out.println("Enter a frequency (D for Daily, W for Weekly, M for Monthly, B for Bimonthly, or Q for Quarterly):");
 			char frequency = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
-			for (Book pe : bookList) {
-				if (pa instanceof Periodical && pa.getFrequency() == frequency) {
-					System.out.println(pa);
+			for (Books pe : bookList) {
+				if (pe instanceof Periodical && ((Periodical)pe).getFrequency() == frequency) {
+					System.out.println(pe);
 				}
 			}
 			break;
@@ -194,7 +196,7 @@ public class LibraryUser {
 				scribe.println(iSBN + ";" + callNum + ";" + available + ";" + total + ";" + title + ";" + authors + ";" + format);
 			} else if (bookType == 2 || bookType == 3) {
 				String publisher = ((Cookbook) books).getPublisher();
-				char diet = ((Cookbook) books).getDiet();
+				char diet = ((Cookbook)books).getDiet();
 				scribe.println(iSBN + ";" + callNum + ";" + available + ";" + total + ";" + title + ";" + publisher + ";" + diet);
 			} else if (bookType == 8 || bookType == 9) {
 				char frequency = ((Periodical) books).getFrequency();
