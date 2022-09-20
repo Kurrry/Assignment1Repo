@@ -79,7 +79,7 @@ public class LibraryUser {
 			else {
 				String authors = parser.nextLine();
 				String stringYear = parser.next();
-				int year = Integer.parseInt(stringYear);
+				short year = Short.parseShort(stringYear);
 				char genre = parser.next().charAt(0);
 				bookList.add(new Paperback(iSBN, callNum, available, total, title, authors, year, genre));
 			}
@@ -129,8 +129,7 @@ public class LibraryUser {
 		switch (choice) {
 		case 1:
 			System.out.println("Enter a format (P for Picture book, E for Early readers, or C for Chapter book):");
-			String stringFormat = userInput.nextLine().toUpperCase();
-			char format = stringFormat.charAt(0);
+			char format = userInput.nextLine().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
 			for (int i = 0; i < bookList.size(); i++) {
 				if (bookList.get(i) instanceof ChildrensBook && ((ChildrensBook)bookList.get(i)).getFormat() == format) {
@@ -140,8 +139,7 @@ public class LibraryUser {
 			break;
 		case 2:
 			System.out.println("Enter a diet (D for Diabetic, V for Vegetarian, G for Gluten-free, I for International, or N for None):");
-			String stringDiet = userInput.nextLine().toUpperCase();
-			char diet = stringDiet.charAt(0);
+			char diet = userInput.nextLine().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
 			for (int i = 0; i < bookList.size(); i++) {
 				if (bookList.get(i) instanceof Cookbook && ((Cookbook)bookList.get(i)).getDiet() == diet) {
@@ -152,8 +150,7 @@ public class LibraryUser {
 		
 		case 3:
 			System.out.println("Enter a genre (A for Adventure, D for Drama, E for Education, C for Classic, F for Fantasy, or S for Science Fiction):");
-			String stringGenre = userInput.nextLine().toUpperCase();
-			char genre = stringGenre.charAt(0);
+			char genre = userInput.nextLine().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
 			for (int i = 0; i < bookList.size(); i++) {
 				if (bookList.get(i) instanceof Paperback && ((Paperback)bookList.get(i)).getGenre() == genre) {
@@ -163,9 +160,7 @@ public class LibraryUser {
 			break;
 		case 4:
 			System.out.println("Enter a frequency (D for Daily, W for Weekly, M for Monthly, B for Bimonthly, or Q for Quarterly):");
-			String stringFrequency = userInput.nextLine().toLowerCase();
-			char frequency = stringFrequency.charAt(0);
-			frequency = Character.toLowerCase(frequency);
+			char frequency = userInput.nextLine().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
 			for (int i = 0; i < bookList.size(); i++) {
 				if (bookList.get(i) instanceof Periodical && ((Periodical)bookList.get(i)).getFrequency() == frequency) {
