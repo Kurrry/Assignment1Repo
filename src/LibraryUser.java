@@ -51,22 +51,19 @@ public class LibraryUser {
 		while (reader.hasNext()) {
 			String currentLine = reader.nextLine();
 			Scanner parser = new Scanner(currentLine).useDelimiter(";");
-			String stringISBN = parser.next();
-			long iSBN = Long.parseLong(stringISBN);
+			long iSBN = parser.nextLong();
 			long bookType = iSBN % 10;
 			String callNum = parser.next();
-			String stringAvailable = parser.next();
-			int available = Integer.parseInt(stringAvailable);
-			String stringTotal = parser.next();
-			int total = Integer.parseInt(stringTotal);
+			int available = parser.nextInt();
+			int total = parser.nextInt();
 			String title = parser.next();
 			if (bookType == 0 || bookType == 1) {
-				String authors = parser.nextLine();
+				String authors = parser.next();
 				char format = parser.next().charAt(0);
 				bookList.add(new ChildrensBook(iSBN, callNum, available, total, title, authors, format));
 			}
 			else if (bookType == 2 || bookType == 3) {
-				String publisher = parser.nextLine();
+				String publisher = parser.next();
 				char diet = parser.next().charAt(0);
 				bookList.add(new Cookbook(iSBN, callNum, available, total, title, publisher, diet));
 			}
@@ -75,9 +72,8 @@ public class LibraryUser {
 				bookList.add(new Periodical(iSBN, callNum, available, total, title, frequency));
 			}
 			else {
-				String authors = parser.nextLine();
-				String stringYear = parser.next();
-				short year = Short.parseShort(stringYear);
+				String authors = parser.next();
+				short year = parser.nextShort();
 				char genre = parser.next().charAt(0);
 				bookList.add(new Paperback(iSBN, callNum, available, total, title, authors, year, genre));
 			}
@@ -123,11 +119,11 @@ public class LibraryUser {
 	
 	public void bookByType() {
 		System.out.println("#\tType\n1\tChildren's Books\n2\tCookbooks\n3\tPaperbacks\n4\tPeriodicals\n\nEnter type of book:");
-		int choice = Integer.parseInt(userInput.nextLine());
+		int choice = userInput.nextInt();
 		switch (choice) {
 		case 1:
 			System.out.println("Enter a format (P for Picture book, E for Early readers, or C for Chapter book):");
-			char format = userInput.nextLine().toUpperCase().charAt(0);
+			char format = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
 			for (int i = 0; i < bookList.size(); i++) {
 				if (bookList.get(i) instanceof ChildrensBook && ((ChildrensBook)bookList.get(i)).getFormat() == format) {
@@ -137,7 +133,7 @@ public class LibraryUser {
 			break;
 		case 2:
 			System.out.println("Enter a diet (D for Diabetic, V for Vegetarian, G for Gluten-free, I for International, or N for None):");
-			char diet = userInput.nextLine().toUpperCase().charAt(0);
+			char diet = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
 			for (int i = 0; i < bookList.size(); i++) {
 				if (bookList.get(i) instanceof Cookbook && ((Cookbook)bookList.get(i)).getDiet() == diet) {
@@ -148,7 +144,7 @@ public class LibraryUser {
 		
 		case 3:
 			System.out.println("Enter a genre (A for Adventure, D for Drama, E for Education, C for Classic, F for Fantasy, or S for Science Fiction):");
-			char genre = userInput.nextLine().toUpperCase().charAt(0);
+			char genre = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
 			for (int i = 0; i < bookList.size(); i++) {
 				if (bookList.get(i) instanceof Paperback && ((Paperback)bookList.get(i)).getGenre() == genre) {
@@ -158,7 +154,7 @@ public class LibraryUser {
 			break;
 		case 4:
 			System.out.println("Enter a frequency (D for Daily, W for Weekly, M for Monthly, B for Bimonthly, or Q for Quarterly):");
-			char frequency = userInput.nextLine().toUpperCase().charAt(0);
+			char frequency = userInput.next().toUpperCase().charAt(0);
 			System.out.println("Matching books:");
 			for (int i = 0; i < bookList.size(); i++) {
 				if (bookList.get(i) instanceof Periodical && ((Periodical)bookList.get(i)).getFrequency() == frequency) {
