@@ -71,6 +71,33 @@ public class Paperback extends Books{
     }
     @Override
     public String toString() {
+        String temp = "";
+        switch (getGenre()) {
+            case 'D':
+                temp = "Drama";
+                break;
+
+            case 'A':
+                temp = "Adventure";
+                break;
+
+            case 'E':
+                temp = "Education";
+                break;
+
+            case 'C':
+                temp = "Classic";
+                break;
+
+            case 'F':
+                temp = "Fantasy";
+                break;
+
+            case 'S':
+                temp = "Science Fiction";
+                break;
+        }
+
            return "ISBN:             " + getIsbn() +
                 "\nCall Number:      " + getCallNumber() +
                 "\nAvailable:        " + getAvailableBooks() +
@@ -78,6 +105,6 @@ public class Paperback extends Books{
                 "\nTitle:            " + getBookTitle() +
                 "\nAuthors:          " + getAuthors() +
                 "\nYears:            " + getYear() +
-                "\nGenre:            " + getGenre();
+                "\nGenre:            " + temp;
     }
 }

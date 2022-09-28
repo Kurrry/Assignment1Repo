@@ -27,12 +27,35 @@ public class Cookbook extends Books{
     }
     @Override
     public String toString() {
+        String temp = "";
+        switch (getDiet()) {
+            case 'D':
+                temp = "Diabetic";
+                break;
+
+            case 'V':
+                temp = "Vegetarian";
+                break;
+
+            case 'G':
+                temp = "Gluten-free";
+                break;
+
+            case 'I':
+                temp = "International";
+                break;
+
+            case 'N':
+                temp = "None";
+                break;
+        }
+
            return "ISBN:             " + getIsbn() +
                 "\nCall Number:      " + getCallNumber() +
                 "\nAvailable:        " + getAvailableBooks() +
                 "\nTotal:            " + getTotalBooks() +
                 "\nTitle:            " + getBookTitle() +
-                "\nDiet:             " + getDiet() +
+                "\nDiet:             " + temp +
                 "\nPublisher:        " + getPublisher();
     }
 }

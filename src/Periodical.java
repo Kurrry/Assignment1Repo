@@ -33,12 +33,35 @@ public class Periodical extends Books{
     }
     @Override
     public String toString() {
+        String temp = "";
+        switch (getFrequency()) {
+            case 'D':
+                temp = "Daily";
+                break;
+
+            case 'W':
+                temp = "Weekly";
+                break;
+
+            case 'M':
+                temp = "Monthly";
+                break;
+
+            case 'B':
+                temp = "Bimonthly";
+                break;
+
+            case 'Q':
+                temp = "Quarterly";
+                break;
+        }
+
            return "ISBN:             " + getIsbn() +
                 "\nCall Number:      " + getCallNumber() +
                 "\nAvailable:        " + getAvailableBooks() +
                 "\nTotal:            " + getTotalBooks() +
                 "\nTitle:            " + getBookTitle() +
-                "\nFrequency:        " + getFrequency();
+                "\nFrequency:        " + temp;
     }
 }
 

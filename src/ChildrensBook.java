@@ -26,12 +26,27 @@ public class ChildrensBook extends Books{
     }
     @Override
     public String toString() {
+        String temp = "";
+        switch (getFormat()) {
+            case 'P':
+                temp = "Picture book";
+                break;
+
+            case 'E':
+                temp = "Early Readers";
+                break;
+
+            case 'C':
+                temp = "Chapter book";
+                break;
+        }
+
            return "ISBN:             " + getIsbn() +
                 "\nCall Number:      " + getCallNumber() +
                 "\nAvailable:        " + getAvailableBooks() +
                 "\nTotal:            " + getTotalBooks() +
                 "\nTitle:            " + getBookTitle() +
                 "\nAuthors:          " + getAuthors() +
-                "\nFormat:           " + getFormat();
+                "\nFormat:           " + temp;
     }
 }
