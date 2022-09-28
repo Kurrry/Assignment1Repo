@@ -62,11 +62,7 @@ public class Cookbook extends Books{
                 break;
         }
 
-           return "ISBN:             " + getIsbn() +
-                "\nCall Number:      " + getCallNumber() +
-                "\nAvailable:        " + getAvailableBooks() +
-                "\nTotal:            " + getTotalBooks() +
-                "\nTitle:            " + getBookTitle() +
+           return super.toString() +
                 "\nDiet:             " + temp +
                 "\nPublisher:        " + getPublisher() + "\n";
     }

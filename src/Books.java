@@ -100,6 +100,14 @@ abstract class Books {
     public String getBookTitle() {
         return bookTitle;
     }
+    @Override
+    public String toString() {
+        return "ISBN:             " + getIsbn() +
+                "\nCall Number:      " + getCallNumber() +
+                "\nAvailable:        " + getAvailableBooks() +
+                "\nTotal:            " + getTotalBooks() +
+                "\nTitle:            " + getBookTitle();
+    }
 
     /*public String toString(Books book) {
 

@@ -60,11 +60,7 @@ public class Periodical extends Books{
                 break;
         }
 
-           return "ISBN:             " + getIsbn() +
-                "\nCall Number:      " + getCallNumber() +
-                "\nAvailable:        " + getAvailableBooks() +
-                "\nTotal:            " + getTotalBooks() +
-                "\nTitle:            " + getBookTitle() +
+           return super.toString() +
                 "\nFrequency:        " + temp + "\n";
     }
 }

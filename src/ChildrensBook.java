@@ -52,12 +52,7 @@ public class ChildrensBook extends Books{
                 break;
         }
 
-           return "ISBN:             " + getIsbn() +
-                "\nCall Number:      " + getCallNumber() +
-                "\nAvailable:        " + getAvailableBooks() +
-                "\nTotal:            " + getTotalBooks() +
-                "\nTitle:            " + getBookTitle() +
-                "\nAuthors:          " + getAuthors() +
+           return super.toString() + "\nAuthors:          " + getAuthors() +
                 "\nFormat:           " + temp + "\n";
     }
 }

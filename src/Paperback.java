@@ -98,12 +98,7 @@ public class Paperback extends Books{
                 break;
         }
 
-           return "ISBN:             " + getIsbn() +
-                "\nCall Number:      " + getCallNumber() +
-                "\nAvailable:        " + getAvailableBooks() +
-                "\nTotal:            " + getTotalBooks() +
-                "\nTitle:            " + getBookTitle() +
-                "\nAuthors:          " + getAuthors() +
+           return super.toString() + "\nAuthors:          " + getAuthors() +
                 "\nYears:            " + getYear() +
                 "\nGenre:            " + temp + "\n";
     }
