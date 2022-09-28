@@ -47,6 +47,6 @@ public class ChildrensBook extends Books{
                 "\nTotal:            " + getTotalBooks() +
                 "\nTitle:            " + getBookTitle() +
                 "\nAuthors:          " + getAuthors() +
-                "\nFormat:           " + temp;
+                "\nFormat:           " + temp + "\n";
     }
 }
