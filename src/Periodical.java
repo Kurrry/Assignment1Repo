@@ -61,7 +61,7 @@ public class Periodical extends Books{
                 "\nAvailable:        " + getAvailableBooks() +
                 "\nTotal:            " + getTotalBooks() +
                 "\nTitle:            " + getBookTitle() +
-                "\nFrequency:        " + temp;
+                "\nFrequency:        " + temp + "\n";
     }
 }
 
