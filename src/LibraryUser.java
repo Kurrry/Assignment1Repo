@@ -96,7 +96,7 @@ public class LibraryUser {
 				found = true;
 				if (quantity > 0) {
 					books.setTotalBooks(quantity - 1);
-					System.out.println("The book " + books.getBookTitle() + " has been checked out.\nIt can be located using a call number: " + books.getCallNumber());
+					System.out.println("\nThe book \"" + books.getBookTitle() + "\" has been checked out.\nIt can be located using a call number: " + books.getCallNumber());
 				}
 				else {
 					System.out.println("There are no more copies of " + books.getBookTitle() + " available to rent.");
