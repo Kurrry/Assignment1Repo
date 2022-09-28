@@ -56,6 +56,6 @@ public class Cookbook extends Books{
                 "\nTotal:            " + getTotalBooks() +
                 "\nTitle:            " + getBookTitle() +
                 "\nDiet:             " + temp +
-                "\nPublisher:        " + getPublisher();
+                "\nPublisher:        " + getPublisher() + "\n";
     }
 }
