@@ -9,22 +9,34 @@ public class Cookbook extends Books{
         this.publisher = publisher;
         this.diet = diet;
     }
-
+    /**
+     * @return publisher
+     */
     public String getPublisher() {
         return publisher;
     }
-
+    /**
+     * @param publisher
+     */
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
-
+    /**
+     * @return diet
+     */
     public char getDiet() {
         return diet;
     }
-
+    /**
+     * @param diet
+     */
     public void setDiet(char diet) {
         this.diet = diet;
     }
+    
+    /**
+     * @return string
+     */
     @Override
     public String toString() {
         String temp = "";

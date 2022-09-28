@@ -8,22 +8,33 @@ public class ChildrensBook extends Books{
         this.authors= authors;
         this.format = format;
     }
-
+    /**
+     * @return format
+     */
     public char getFormat() {
         return format;
     }
-
+    /**
+     * @param format
+     */
     public void setFormat(char format) {
         this.format = format;
     }
-
+    /**
+     * @return authors
+     */
     public String getAuthors() {
         return authors;
     }
-
+    /**
+     * @param authors
+     */
     public void setAuthors(String authors) {
         this.authors = authors;
     }
+    /**
+     * @return string
+     */
     @Override
     public String toString() {
         String temp = "";
