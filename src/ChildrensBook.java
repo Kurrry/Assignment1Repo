@@ -24,4 +24,14 @@ public class ChildrensBook extends Books{
     public void setAuthors(String authors) {
         this.authors = authors;
     }
+    @Override
+    public String toString() {
+           return "ISBN:             " + getIsbn() +
+                "\nCall Number:      " + getCallNumber() +
+                "\nAvailable:        " + getAvailableBooks() +
+                "\nTotal:            " + getTotalBooks() +
+                "\nTitle:            " + getBookTitle() +
+                "\nAuthors:          " + getAuthors() +
+                "\nFormat:           " + getFormat();
+    }
 }

@@ -31,6 +31,15 @@ public class Periodical extends Books{
     public void setFrequency(char frequency) {
         this.frequency = frequency;
     }
+    @Override
+    public String toString() {
+           return "ISBN:             " + getIsbn() +
+                "\nCall Number:      " + getCallNumber() +
+                "\nAvailable:        " + getAvailableBooks() +
+                "\nTotal:            " + getTotalBooks() +
+                "\nTitle:            " + getBookTitle() +
+                "\nFrequency:        " + getFrequency();
+    }
 }
 
 

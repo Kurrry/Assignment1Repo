@@ -25,4 +25,14 @@ public class Cookbook extends Books{
     public void setDiet(char diet) {
         this.diet = diet;
     }
+    @Override
+    public String toString() {
+           return "ISBN:             " + getIsbn() +
+                "\nCall Number:      " + getCallNumber() +
+                "\nAvailable:        " + getAvailableBooks() +
+                "\nTotal:            " + getTotalBooks() +
+                "\nTitle:            " + getBookTitle() +
+                "\nDiet:             " + getDiet() +
+                "\nPublisher:        " + getPublisher();
+    }
 }

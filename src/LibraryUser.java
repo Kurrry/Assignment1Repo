@@ -50,7 +50,7 @@ public class LibraryUser {
 	}
 	
 	public void loadDoc() throws Exception {
-		File bookFile = new File("C:\\Users\\User\\Desktop\\CRPG251\\books.txt");
+		File bookFile = new File("C:\\Users\\User\\Desktop\\CRPG251\\Assignment1\\books.txt");
 		Scanner reader = new Scanner(bookFile);
 		while (reader.hasNext()) {
 			String currentLine = reader.nextLine();
@@ -179,7 +179,7 @@ public class LibraryUser {
 	}
 	
 	public void saveBookList() throws IOException {
-		File bookFile = new File("C:\\Users\\User\\Desktop\\CRPG251\\books.txt");
+		File bookFile = new File("C:\\Users\\User\\Desktop\\CRPG251\\Assignment1\\books.txt");
 		PrintWriter scribe = new PrintWriter(bookFile);
 		for (Books books : bookList) {
 			long iSBN = books.getIsbn();

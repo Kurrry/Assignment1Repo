@@ -69,4 +69,15 @@ public class Paperback extends Books{
     public void setGenre(char genre) {
         this.genre = genre;
     }
+    @Override
+    public String toString() {
+           return "ISBN:             " + getIsbn() +
+                "\nCall Number:      " + getCallNumber() +
+                "\nAvailable:        " + getAvailableBooks() +
+                "\nTotal:            " + getTotalBooks() +
+                "\nTitle:            " + getBookTitle() +
+                "\nAuthors:          " + getAuthors() +
+                "\nYears:            " + getYear() +
+                "\nGenre:            " + getGenre();
+    }
 }
