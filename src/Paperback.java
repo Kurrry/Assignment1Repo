@@ -105,6 +105,6 @@ public class Paperback extends Books{
                 "\nTitle:            " + getBookTitle() +
                 "\nAuthors:          " + getAuthors() +
                 "\nYears:            " + getYear() +
-                "\nGenre:            " + temp;
+                "\nGenre:            " + temp + "\n";
     }
 }
