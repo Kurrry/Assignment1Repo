@@ -99,7 +99,7 @@ public class Paperback extends Books{
         }
 
            return super.toString() + "\nAuthors:          " + getAuthors() +
-                "\nYears:            " + getYear() +
+                "\nYear:            " + getYear() +
                 "\nGenre:            " + temp + "\n";
     }
 }
