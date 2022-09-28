@@ -7,10 +7,10 @@ public class LibraryUser {
 	Scanner userInput = new Scanner(System.in);
 	public Scanner userInput2 = new Scanner(System.in);
 	ArrayList<Books> bookList = new ArrayList<>();
-	
+
 	public LibraryUser() {
 	}
-	
+
 	public void loadMenu() throws IOException {
 		System.out.println("Welcome in ABC Book Company: How May We Assist You?");
 		System.out.println("1\tCheckout Book");
@@ -48,7 +48,7 @@ public class LibraryUser {
 			loadMenu();
 		}
 	}
-	
+
 	public void loadDoc() throws Exception {
 		File bookFile = new File("C:\\Users\\User\\Desktop\\CRPG251\\Assignment1\\books.txt");
 		Scanner reader = new Scanner(bookFile);
@@ -85,7 +85,7 @@ public class LibraryUser {
 		}
 		reader.close();
 	}
-	
+
 	public void checkoutBook() {
 		System.out.print("Enter ISBN of book: ");
 		long iSBN = userInput.nextLong();
@@ -105,10 +105,10 @@ public class LibraryUser {
 			}
 		}
 		if (!found) {
-				System.out.println("There are no books in our entries which match the given ISBN:\n" + iSBN);
+			System.out.println("There are no books in our entries which match the given ISBN:\n" + iSBN);
 		}
 	}
-	
+
 	public void findBook() {
 		System.out.print("Enter title to search for: ");
 		String title = userInput2.nextLine().toLowerCase();
@@ -119,55 +119,55 @@ public class LibraryUser {
 			}
 		}
 	}
-	
+
 	public void bookByType() {
 		System.out.print("#\tType\n1\tChildren's Books\n2\tCookbooks\n3\tPaperbacks\n4\tPeriodicals\n\nEnter type of book: ");
 		int choice = userInput.nextInt();
 		switch (choice) {
-		case 1:
-			System.out.print("Enter a format (P for Picture book, E for Early readers, or C for Chapter book): ");
-			char format = userInput.next().toUpperCase().charAt(0);
-			System.out.println("Matching books:");
-			for (Books ch : bookList) {
-				if (ch instanceof ChildrensBook && ((ChildrensBook) ch).getFormat() == format) {
-					System.out.println(ch);
+			case 1:
+				System.out.print("Enter a format (P for Picture book, E for Early readers, or C for Chapter book): ");
+				char format = userInput.next().toUpperCase().charAt(0);
+				System.out.println("Matching books:");
+				for (Books ch : bookList) {
+					if (ch instanceof ChildrensBook && ((ChildrensBook) ch).getFormat() == format) {
+						System.out.println(ch);
+					}
 				}
-			}
-			break;
-		case 2:
-			System.out.print("Enter a diet (D for Diabetic, V for Vegetarian, G for Gluten-free, I for International, or N for None): ");
-			char diet = userInput.next().toUpperCase().charAt(0);
-			System.out.println("Matching books:");
-			for (Books co : bookList) {
-				if (co instanceof Cookbook && ((Cookbook) co).getDiet() == diet) {
-					System.out.println(co);
+				break;
+			case 2:
+				System.out.print("Enter a diet (D for Diabetic, V for Vegetarian, G for Gluten-free, I for International, or N for None): ");
+				char diet = userInput.next().toUpperCase().charAt(0);
+				System.out.println("Matching books:");
+				for (Books co : bookList) {
+					if (co instanceof Cookbook && ((Cookbook) co).getDiet() == diet) {
+						System.out.println(co);
+					}
 				}
-			}
-			break;
-		
-		case 3:
-			System.out.print("Enter a genre (A for Adventure, D for Drama, E for Education, C for Classic, F for Fantasy, or S for Science Fiction): ");
-			char genre = userInput.next().toUpperCase().charAt(0);
-			System.out.println("Matching books:");
-			for (Books pa : bookList) {
-				if (pa instanceof Paperback && ((Paperback)pa).getGenre() == genre) {
-					System.out.println(pa);
+				break;
+
+			case 3:
+				System.out.print("Enter a genre (A for Adventure, D for Drama, E for Education, C for Classic, F for Fantasy, or S for Science Fiction): ");
+				char genre = userInput.next().toUpperCase().charAt(0);
+				System.out.println("Matching books:");
+				for (Books pa : bookList) {
+					if (pa instanceof Paperback && ((Paperback)pa).getGenre() == genre) {
+						System.out.println(pa);
+					}
 				}
-			}
-			break;
-		case 4:
-			System.out.print("Enter a frequency (D for Daily, W for Weekly, M for Monthly, B for Bimonthly, or Q for Quarterly): ");
-			char frequency = userInput.next().toUpperCase().charAt(0);
-			System.out.println("Matching books:");
-			for (Books pe : bookList) {
-				if (pe instanceof Periodical && ((Periodical)pe).getFrequency() == frequency) {
-					System.out.println(pe);
+				break;
+			case 4:
+				System.out.print("Enter a frequency (D for Daily, W for Weekly, M for Monthly, B for Bimonthly, or Q for Quarterly): ");
+				char frequency = userInput.next().toUpperCase().charAt(0);
+				System.out.println("Matching books:");
+				for (Books pe : bookList) {
+					if (pe instanceof Periodical && ((Periodical)pe).getFrequency() == frequency) {
+						System.out.println(pe);
+					}
 				}
-			}
-			break;
+				break;
 		}
 	}
-	
+
 	public void randomBookList() {
 		System.out.print("Enter number of books: ");
 		int numOfBooks = userInput.nextInt();
@@ -177,7 +177,7 @@ public class LibraryUser {
 			System.out.println(bookList.get(i).toString());
 		}
 	}
-	
+
 	public void saveBookList() throws IOException {
 		File bookFile = new File("C:\\Users\\User\\Desktop\\CRPG251\\Assignment1\\books.txt");
 		PrintWriter scribe = new PrintWriter(bookFile);
