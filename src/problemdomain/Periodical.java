@@ -1,14 +1,19 @@
+/*
+ * @author Avery Johnson-Dhillon // Eric Gagne // John Holloway
+ */
+
 public class Periodical extends Books{
     private char frequency;
 
     /**
+     * Constructor of Periodical class
      *
-     * @param isbn
-     * @param callNumber
-     * @param availableBooks
-     * @param totalBooks
-     * @param bookTitle
-     * @param frequency
+     * @param isbn ISBN of book
+     * @param callNumber Call number of book 
+     * @param availableBooks Number of book available now
+     * @param totalBooks Total number of a book in inventory
+     * @param bookTitle Title of book
+     * @param frequency Publication frequency
      */
     public Periodical(long isbn, String callNumber, int availableBooks, int totalBooks,
                       String bookTitle, char frequency) {
@@ -17,23 +22,25 @@ public class Periodical extends Books{
     }
 
     /**
+     * Returns the publication frequency of a Periodical object
      *
-     * @return
+     * @return Publication frequency
      */
     public char getFrequency() {
         return frequency;
     }
 
     /**
+     * Sets the publication frequency of a Periodical object
      *
-     * @param frequency
+     * @param frequency Publication frequency
      */
     public void setFrequency(char frequency) {
         this.frequency = frequency;
     }
     
     /**
-     * @return string
+     * @return Formatted String displaying all the data fields of a Periodical object
      */
     @Override
     public String toString() {

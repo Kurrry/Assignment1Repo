@@ -1,18 +1,26 @@
+/*
+ * @author Avery Johnson-Dhillon // Eric Gagne // John Holloway
+ * @version Sept 28, 2022
+ * 
+ * Subclass of Books
+ */
+
 public class Paperback extends Books{
     private String authors;
     private int year;
     private char genre;
 
     /**
+     * Constructor of Paperback class
      *
-     * @param isbn
-     * @param callNumber
-     * @param availableBooks
-     * @param totalBooks
-     * @param bookTitle
-     * @param authors
-     * @param year
-     * @param genre
+     * @param isbn ISBN of book
+     * @param callNumber Call number of book 
+     * @param availableBooks Number of book available now
+     * @param totalBooks Total number of a book in inventory
+     * @param bookTitle Title of book
+     * @param authors Book authors
+     * @param year Year of publication
+     * @param genre Book genre
      */
     public Paperback(long isbn, String callNumber, int availableBooks, int totalBooks,
               String bookTitle, String authors, int year, char genre) {
@@ -23,52 +31,62 @@ public class Paperback extends Books{
     }
 
     /**
+     * Returns the book authors of a Paperback object
      *
-     * @return
+     * @return Book authors
      */
     public String getAuthors() {
         return authors;
     }
 
     /**
+     *Sets the book authors of a Paperback object
      *
-     * @param authors
+     * @param authors Book authors
      */
     public void setAuthors(String authors) {
         this.authors = authors;
     }
 
     /**
+     * Returns the publication year of a Paperback object
      *
-     * @return
+     * @return Year of publication
      */
     public int getYear() {
         return year;
     }
 
     /**
+     * Sets the publication year of a Paperback object
      *
-     * @param year
+     * @param year Year of publication
      */
     public void setYear(short year) {
         this.year = year;
     }
 
     /**
+     * Returns the genre of a Paperback object
      *
-     * @return
+     * @return Book genre
      */
     public char getGenre() {
         return genre;
     }
 
     /**
+     * Sets the genre of a Paperback object
      *
-     * @param genre
+     * @param genre Book genre
      */
     public void setGenre(char genre) {
         this.genre = genre;
     }
+    
+    /*
+     * @return Formatted String displaying all the data fields of a Paperback object
+     */
     @Override
     public String toString() {
         String temp = "";

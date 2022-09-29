@@ -1,3 +1,10 @@
+/*
+ * @author Avery Johnson-Dhillon // Eric Gagne // John Holloway
+ * @version September 28, 2022
+ * 
+ * This is the superclass of Books. It has subclasses of ChildrensBook, Cookbook, Paperback, and Periodical
+ * 
+ */
 abstract class Books {
     private long isbn;
     private String callNumber;
@@ -6,12 +13,13 @@ abstract class Books {
     private String bookTitle;
 
     /**
-     *
-     * @param isbn
-     * @param callNumber
-     * @param availableBooks
-     * @param totalBooks
-     * @param bookTitle
+     * Constructor of Books class. 
+     * 
+     * @param isbn ISBN of book
+     * @param callNumber Call number of book 
+     * @param availableBooks Number of book available now
+     * @param totalBooks Total number of a book in inventory
+     * @param bookTitle Title of book
      */
     Books(long isbn, String callNumber, int availableBooks, int totalBooks, String bookTitle) {
         this.isbn = isbn;
@@ -22,84 +30,98 @@ abstract class Books {
     }
 
     /**
-     *
-     * @param isbn
+     * Sets the ISBN of a Books object
+     * 
+     * @param isbn ISBN of book
      */
     public void setIsbn(long isbn) {
         this.isbn = isbn;
     }
-
+    
     /**
-     *
-     * @param callNumber
+     * Sets the call number of a Books object
+     * 
+     * @param callNumber Call number of book
      */
     public void setCallNumber(String callNumber) {
         this.callNumber = callNumber;
     }
 
     /**
-     *
-     * @param availableBooks
+     * Sets the number of copies currently available to rent of a Books object
+     * 
+     * @param availableBooks Number of books available now
      */
     public void setAvailableBooks(int availableBooks) {
         this.availableBooks = availableBooks;
     }
 
     /**
-     *
-     * @param totalBooks
+     * Sets the total number of copies in inventory of a Books object
+     * 
+     * @param totalBooks Total number of a book in inventory
      */
     public void setTotalBooks(int totalBooks) {
         this.totalBooks = totalBooks;
     }
 
     /**
-     *
-     * @param bookTitle
+     * Sets the title of a Books object
+     * 
+     * @param bookTitle Title of book
      */
     public void setBookTitle(String bookTitle) {
         this.bookTitle = bookTitle;
     }
 
     /**
-     *
-     * @return
+     * Returns the ISBN of a Books object
+     * 
+     * @return ISBN of book
      */
     public long getIsbn() {
         return isbn;
     }
 
     /**
-     *
-     * @return
+     * Returns the call number of a Books object
+     * 
+     * @return Call number of book
      */
     public String getCallNumber() {
         return callNumber;
     }
 
     /**
-     *
-     * @return
+     * Returns the number of books available to rent at the moment of a Books object
+     * 
+     * @return Number of books available now
      */
     public int getAvailableBooks() {
         return availableBooks;
     }
 
     /**
-     *
-     * @return
+     * Returns the total number of a book in the inventory of a Books object
+     * 
+     * @return Total number of a book in inventory
      */
     public int getTotalBooks() {
         return totalBooks;
     }
 
     /**
-     *
-     * @return
+     * Returns the title of a Books object
+     * 
+     * @return Title of book
      */
     public String getBookTitle() {
         return bookTitle;
     }
+    
+    /**
+     * @return Formatted String displaying all the data fields of a Books object
+     */
     @Override
     public String toString() {
         return "ISBN:             " + getIsbn() +
@@ -108,45 +130,4 @@ abstract class Books {
                 "\nTotal:            " + getTotalBooks() +
                 "\nTitle:            " + getBookTitle();
     }
-
-    /*public String toString(Books book) {
-
-    }*/
 }
-
-/*
-The problem:
-
-The ABC Book Company wants to implement a system to manage their books more efficiently. The system should allow both employees and patrons to checkout, find, and list books.
-A data file containing a sample list of books is provided. The data file contains a combination of four different types of books: children’s books, cookbooks, paperbacks, and periodicals.
-Each book is uniquely identified using an ISBN and the information for each type of book is described in the formatting section.
-The ABC Book Company wants an interactive program that does the following:
-
-
-1.	Checkout a book.
-•	Allows a patron to checkout a book using its ISBN. If the book is unavailable, the user will be informed and the program will return back to the main menu.
-    Otherwise, if the book is available, the available count will be decremented and the book information will be displayed.
-2.	Find books by title.
-•	Allows a patron to enter a search term and the program will display a list of books that have a title matching the search term.
-3.	Display books of a specific type.
-•	Allows a patron to view a list of books with a specific type.
-    The user will also enter a format, diet, genre, or frequency (depending on the type of book) and the book list will be narrowed down further.
-4.	Produce a list of random books.
-•	Allows a patron to print a list of random books. The list of books can contain any type of book.
-
-
-
-types of books:
-    children: Picture book, Early Readers, or Chapter book
-    cookbook: Diabetic, Vegetarian, Gluten-free, International, or None
-    paperback: Adventure, Drama, Education, Classic, Fantasy, or Science Fiction
-    periodicals: Daily, Weekly, Monthly, Bimonthly, and Quarterly. A periodical cannot be checked out
-
-ISBN length = 13
-
-Animal anim = new Cat();
-Cat cat = (Cat) anim;
-
-D) Objects will be created as Book test = new SubClassType for storing List. List contents will be displayed by downcasting
-Objects to appropriate subtype based on isbn.
-*/

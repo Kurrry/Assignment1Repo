@@ -1,3 +1,10 @@
+/*
+ * @author Eric Gagne // Avery Johnson-Dhillon // John Holloway
+ * @verison September 28, 2022
+ * 
+ * This program generates a Library user who can perform certain tasks related to the library's inventory and their books. It is run by the AppDriver.java program.
+ */
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,9 +15,17 @@ public class LibraryUser {
 	public Scanner userInput2 = new Scanner(System.in);
 	ArrayList<Books> bookList = new ArrayList<>();
 
+	/**
+	 * Generates a user who has access to the desired commands through their class methods
+	 */
 	public LibraryUser() {
 	}
 
+	/**
+	 * Prints off menu choices onto console, waits for user input for selection, call the method dealing with their desired option, if the system does not save and exit, the method calls itself again. 
+	 * 
+	 * @throws IOException
+	 */
 	public void loadMenu() throws IOException {
 		System.out.println("Welcome in ABC Book Company: How May We Assist You?");
 		System.out.println("1\tCheckout Book");
@@ -49,6 +64,11 @@ public class LibraryUser {
 		}
 	}
 
+	/**
+	 * Loads the books from the books.txt document, creates the appropriate object type for each book on the list, and puts in on a Books ArrayList. 
+	 * 
+	 * @throws Exception
+	 */
 	public void loadDoc() throws Exception {
 		File bookFile = new File("res\\books.txt");
 		Scanner reader = new Scanner(bookFile);
@@ -86,6 +106,11 @@ public class LibraryUser {
 		reader.close();
 	}
 
+	/**
+	 * User enters in an ISBN, the program checks if there is a matching Books object with the given ISBN, 
+	 * if there is it then checks if there are any available copies at the moment, 
+	 * if there are it automatically checks the book out and displays the call number of the book. 
+	 */
 	public void checkoutBook() {
 		System.out.print("Enter ISBN of book: ");
 		long iSBN = userInput.nextLong();
@@ -109,6 +134,9 @@ public class LibraryUser {
 		}
 	}
 
+	/**
+	 * Searches all entries on the Books ArrayList for entries with case-insensitive titles containing a given String
+	 */
 	public void findBook() {
 		System.out.print("Enter title to search for: ");
 		String title = userInput2.nextLine().toLowerCase();
@@ -120,6 +148,9 @@ public class LibraryUser {
 		}
 	}
 
+	/**
+	 * Displays all books of a given type. The user is given options to filter which type of book they would like displayed
+	 */
 	public void bookByType() {
 		System.out.print("#\tType\n1\tChildren's Books\n2\tCookbooks\n3\tPaperbacks\n4\tPeriodicals\n\nEnter type of book: ");
 		int choice = userInput.nextInt();
@@ -168,6 +199,9 @@ public class LibraryUser {
 		}
 	}
 
+	/**
+	 * Generates and displays a determined number of randomly selected books from the ArrayList
+	 */
 	public void randomBookList() {
 		System.out.print("Enter number of books: ");
 		int numOfBooks = userInput.nextInt();
@@ -178,6 +212,11 @@ public class LibraryUser {
 		}
 	}
 
+	/**
+	 * Saves the current contents of the ArrayList over the old .txt file
+	 * 
+	 * @throws IOException
+	 */
 	public void saveBookList() throws IOException {
 		File bookFile = new File("res\\books.txt");
 		PrintWriter scribe = new PrintWriter(bookFile);
