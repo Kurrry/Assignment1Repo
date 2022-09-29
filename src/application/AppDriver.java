@@ -5,6 +5,9 @@
  * This is the program driver which primarily runs the LibraryUser class to do most of the functions. 
  * 
  */
+package application;
+
+import manager.LibraryUser;
 import java.util.Scanner;
 
 public class AppDriver {

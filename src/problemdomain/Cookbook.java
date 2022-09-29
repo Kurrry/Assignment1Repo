@@ -5,6 +5,7 @@
  * Subclass of Books
  */
 
+package problemdomain;
 public class Cookbook extends Books{
     private String publisher;
     private char diet;

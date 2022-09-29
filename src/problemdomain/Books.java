@@ -5,7 +5,8 @@
  * This is the superclass of Books. It has subclasses of ChildrensBook, Cookbook, Paperback, and Periodical
  * 
  */
-abstract class Books {
+package problemdomain;
+public abstract class Books {
     private long isbn;
     private String callNumber;
     private int availableBooks;

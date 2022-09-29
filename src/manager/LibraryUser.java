@@ -4,11 +4,14 @@
  * 
  * This program generates a Library user who can perform certain tasks related to the library's inventory and their books. It is run by the AppDriver.java program.
  */
+package manager;
+import problemdomain.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
+
 
 public class LibraryUser {
 	Scanner userInput = new Scanner(System.in);

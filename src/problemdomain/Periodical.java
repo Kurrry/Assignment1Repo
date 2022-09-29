@@ -2,6 +2,7 @@
  * @author Avery Johnson-Dhillon // Eric Gagne // John Holloway
  */
 
+package problemdomain;
 public class Periodical extends Books{
     private char frequency;
 
@@ -59,7 +60,7 @@ public class Periodical extends Books{
                 break;
 
             case 'B':
-                temp = "Bimonthly";
+                temp = "Bi-monthly";
                 break;
 
             case 'Q':
